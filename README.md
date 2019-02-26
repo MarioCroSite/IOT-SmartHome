@@ -12,6 +12,15 @@ Read (docx) and Shema file about full project.
     *	Allows the user to control the IoT devices
 
 
+## Components that we used
+*	Raspberry Pi Gateway
+*	Smart Sense Air sensor
+*	Smart Plug
+*	Server application
+*	Web application
+*	Android application
+
+
 ## Authors
 
 * Borna Grgurić
