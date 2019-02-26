@@ -1,0 +1,112 @@
+#sensors {
+    width: 100%;
+    text-align: center;
+}
+
+.gauges {
+    text-align: center;
+    width: 100%
+}
+
+.gaguges > div{
+    display: inline-block;
+}
+
+#live-data-wrapper{
+    font-size: 0;
+}
+
+.gauges-fieldset{
+    border-width: 0;
+    display: block;
+    border-bottom: 1px solid gray;
+}
+
+.gauges > div{
+    width: 33%
+}
+
+
+.gauge {
+    min-width: 380px;
+    display: inline-block;
+}
+
+.startStopButton {
+    font-weight: bold;
+    font-size: 17px;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    width: 110px;
+}
+
+#sensorsFieldset {
+    margin: 0 auto;
+    width: 90%;
+}
+
+#sensorsFieldset > legend {
+    margin: 0 auto;
+    font-size: 25px;
+}
+
+
+
+
+
+
+fieldset > div {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+}
+
+fieldset > div  > section {
+    display: none;
+    padding: 20px 0 0;
+    border-top: 1px solid #abc;
+}
+
+fieldset > div  > input, #timely-tabs > input {
+    display: none;
+}
+
+fieldset > div  > label{
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 15px 25px;
+    font-weight: 600;
+    text-align: center;
+    color: #abc;
+    border: 1px solid transparent;
+}
+
+fieldset > div > label:hover, #timely-tabs > label:hover {
+    color: #789;
+    cursor: pointer;
+}
+
+input:checked + label {
+    color: #0af;
+    border: 1px solid #abc;
+    border-top: 2px solid #0af;
+    border-bottom: 1px solid #fff;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2{
+    display: block;
+}
+
+
+#timely-tabs{
+    margin-bottom: 30px;
+}
+
+#timely-tabs > label {
+    padding: 10px 30px;
+    border: 0 solid transparent;
+    font-weight: bold;
+}

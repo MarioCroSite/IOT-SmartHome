@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SmartHome</string>
+    <string name="iot_grupa_5">IOT GRUPA 5</string>
+    <string name="full_url">http://193.198.208.164:15080</string>
+    <string name="part_url">193.198.208.164:15080</string>
+    <string name="error_url">file:///android_asset/error.html</string>
+</resources>

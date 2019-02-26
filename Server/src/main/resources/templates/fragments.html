@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="head">
+    <title>SmartHouse</title>
+    <meta charset="UTF-8">
+
+    <link th:href="@{/css/libs/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/core.css}" rel="stylesheet">
+
+    <script th:src="@{/js/http.js}"></script>
+
+</head>
+<body>
+
+    <div th:fragment="header" style="font-size: 0">
+
+        <div style="display: inline-block; width: 50%">
+            <a th:href="@{/}">
+                <img style="padding-left: 20px; width: 80px; display: inline-block" th:src="@{/images/smarthome.jpg}" />
+                <h1 style="display: inline-block; vertical-align: middle; padding-left: 20px">IoT Smart House Project</h1>
+            </a>
+        </div>
+
+        <div style="text-align: right; display: inline-block; width: 50%" sec:authorize="isAuthenticated()">
+            <form style="padding-right: 20px; font-size: 18px" method="POST" th:action="@{/logout}">
+                <span style="margin-right: 5px;" th:text="#{msg.hello}"></span>
+                <span sec:authentication="name" style="text-decoration: underline; font-weight: bold; margin-right: 5px"></span>
+                <input type="submit" class="btn btn-danger" th:value="#{msg.logout.button}"/>
+            </form>
+        </div>
+        <div style="text-align: right; display: inline-block; width: 50%" sec:authorize="!isAuthenticated()" th:if="${#httpServletRequest.requestURI != '/login'}">
+            <div style="padding-right: 20px;">
+                <a class="btn btn-primary" th:href="@{/login}" th:text="#{msg.login.button}"></a>
+            </div>
+        </div>
+
+        <!--<div>-->
+            <!--<span th:text="#{msg.lang.current}"></span>:-->
+            <!--<select id="locales">-->
+                <!--<option value="hr" th:selected="${#locale.language == 'hr'}" th:text="#{msg.lang.hr}"></option>-->
+                <!--<option value="en" th:selected="${#locale.language == 'en'}" th:text="#{msg.lang.en}"></option>-->
+            <!--</select>-->
+        <!--</div>-->
+
+        <hr>
+
+
+    </div>
+
+</body>
+</html>

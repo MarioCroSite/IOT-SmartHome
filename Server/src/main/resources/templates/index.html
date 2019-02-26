@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+
+<head th:replace="fragments :: head" ></head>
+
+<body>
+
+<!--LIBS-->
+<script th:src="@{/js/libs/justgage.js}"></script>
+<script th:src="@{/js/libs/raphael-2.1.4.min.js}"></script>
+<script th:src="@{/js/libs/chart.min.js}"></script>
+
+<!--APP-->
+<script th:src="@{/js/live-data.js}"></script>
+<script th:src="@{/js/history-data.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+
+<div id="sensors">
+    <fieldset id="sensorsFieldset">
+        <legend>Sensors</legend>
+        <div>
+
+            <input id="tab1" type="radio" name="tabs" checked>
+            <label for="tab1">Live</label>
+
+            <input id="tab2" type="radio" name="tabs">
+            <label for="tab2">History</label>
+
+            <section id="content1">
+
+                <div style="width: 100%; text-align: left">
+                    <label style="margin-right: 10px">
+                        Delay:
+                        <input id="infiniteLoaderDelay" style="width: 50px" type="number" step="1" value="5" min="1" onchange="app.sensors.infiniteLoader.start(parseInt(this.value) * 1000);">
+                        seconds
+                    </label>
+                </div>
+
+
+                <div id="live-data-wrapper">
+                    <fieldset class="gauges-fieldset">
+                        <legend>Air</legend>
+
+                        <div style="width: 100%; margin-top: 10px">
+                            <div><input type="button" id="startStopAir" class="startStopButton" value="Initializing..."></div>
+                        </div>
+
+                        <div class="gauges air-gauges">
+                            <div class="gauge" id="gauge-co2"></div>
+                            <div class="gauge" id="gauge-temp"></div>
+                            <div class="gauge" id="rel-humidity"></div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="gauges-fieldset" >
+                        <legend>Smart plug</legend>
+
+                        <div style="width: 100%; margin-top: 10px">
+                            <div><input type="button" id="startStopPlug" class="startStopButton" value="Initializing..."></div>
+                        </div>
+
+                        <div class="gauges plug-gauges">
+                            <div class="gauge" id="power-consumption"></div>
+                        </div>
+                    </fieldset>
+
+                </div>
+
+            </section>
+
+            <section id="content2">
+
+                <fieldset>
+                    <legend style="width: 100%; text-align: left">
+                        <input type="button" onclick="HistoryData.load();" value="Refresh">
+                    </legend>
+                    <div>
+
+                        <div id="timely-tabs">
+                            <input id="tab2-11" type="radio" value="Daily" name="timely" checked onchange="HistoryData.setCurrentInterval(this.value);">
+                            <label for="tab2-11">Daily</label>
+
+                            <input id="tab2-21" type="radio" value="Weekly" name="timely" onchange="HistoryData.setCurrentInterval(this.value);">
+                            <label for="tab2-21">Weekly</label>
+
+                            <input id="tab2-31" type="radio" value="Monthly" name="timely" onchange="HistoryData.setCurrentInterval(this.value);">
+                            <label for="tab2-31">Monthly</label>
+                        </div>
+
+
+                        <input id="tab2-1" type="radio" value="temp" name="inner-tabs" checked onchange="HistoryData.setCurrentChart(this.value);">
+                        <label for="tab2-1">Temperature</label>
+
+                        <input id="tab2-2" type="radio" value="co2" name="inner-tabs" onchange="HistoryData.setCurrentChart(this.value);">
+                        <label for="tab2-2">CO₂</label>
+
+                        <input id="tab2-3" type="radio" value="relHumidity" name="inner-tabs" onchange="HistoryData.setCurrentChart(this.value);">
+                        <label for="tab2-3">Rel. Humidity</label>
+
+                        <input id="tab2-4" type="radio" value="power" name="inner-tabs" onchange="HistoryData.setCurrentChart(this.value);">
+                        <label for="tab2-4">Electricity consumption</label>
+
+                        <div id="content2-1">
+                            <canvas id="historyChart"></canvas>
+                        </div>
+
+                    </div>
+                </fieldset>
+
+            </section>
+
+
+        </div>
+    </fieldset>
+
+</div>
+
+
+</body>
+</html>

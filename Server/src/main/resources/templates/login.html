@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments :: head" ></head>
+
+<body>
+
+    <div class="container-fluid">
+        <div th:replace="fragments :: header" ></div>
+        <h1 th:text="#{msg.login.text}"></h1>
+        <div th:if="${param.error}" class="login-error" th:text="#{msg.login.error}"></div>
+        <div th:if="${param.logout}" class="logout-success" th:text="#{msg.logout.success}"></div>
+        <form method="POST" th:action="@{/login}">
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="username" th:text="#{msg.username}+':'" ></label>
+                    <input value="borna" type="text" name="username" class="form-control" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="password" th:text="#{msg.password}+':'" ></label>
+                    <input value="123" type="password" name="password" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <input type="submit" th:value="#{msg.login.button}" class="form-control btn btn-primary" />
+                </div>
+            </div>
+        </form>
+        <a th:href="@{/register}" class="btn btn-primary" th:text="#{msg.registration.button}"></a>
+    </div>
+
+</body>
+</html>

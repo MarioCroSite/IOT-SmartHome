@@ -1,0 +1,23 @@
+main > h3 {
+	animation: 2s float linear infinite;
+	font-size: 4vh;
+	text-shadow: 1px 3px 11px rgba(0, 0, 0, 0.5);
+	position: fixed;
+	bottom: 10%;
+}
+
+main > img {
+    animation: blink normal 2s infinite ease-in-out;
+}
+
+@keyframes float {
+	from { transform: translateY(0%); }
+	50% { transform: translateY(-40%); }
+	to { transform: translateY(0%); }
+}
+
+@keyframes blink {
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
